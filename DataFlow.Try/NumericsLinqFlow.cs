@@ -52,8 +52,8 @@ namespace DataFlowTest
         {
             var flow = GetFlow();
 
-            int start = 1_00_000_000;
-            int end = 2_00_000_000;
+            int start = 10_000_000;
+            int end = 20_000_000;
             for (int i = start; i < end; i++) flow.Post(i);
                 
             await flow.FinishAsync();

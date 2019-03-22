@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dataflow.Linq", "Dataflow.Linq\Dataflow.Linq.csproj", "{4ABA9C90-922A-416E-B6C8-65E69F8FCE83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFlow.Linq.Try", "DataFlow.Try\DataFlow.Linq.Try.csproj", "{03E31A44-566C-45FD-9333-4628FD83FA87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataFlow.Linq.Examples", "DataFlow.Try\DataFlow.Linq.Examples.csproj", "{03E31A44-566C-45FD-9333-4628FD83FA87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
