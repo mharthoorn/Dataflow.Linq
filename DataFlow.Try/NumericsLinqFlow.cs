@@ -10,9 +10,9 @@ namespace DataFlowTest
 {
     public static class NumericsLinqFlow
     {
-        public static bool Prime(long n)
+        public static bool Prime(int n)
         {
-            for (long i = 2; i < n; i++)
+            for (int i = 2; i < n; i++)
             {
                 if (n % i == 0) return false;
             }
@@ -31,12 +31,12 @@ namespace DataFlowTest
                 .Action(Console.WriteLine);
         }
 
-        public static IFlow<long> GetFlow()
+        public static IFlow<int> GetFlow()
         {
-            var cache = new List<long>();
+            var cache = new List<int>();
             return
                 DataFlow
-                .From<long>()
+                .From<int>()
                 .Filter(i => Prime(i), parallel: 10, buffer: 10)
                 .Action(Console.WriteLine);
         }
@@ -45,18 +45,14 @@ namespace DataFlowTest
         {
             var flow = GetLinqFlow();
             Enumerable.Range(1, 30).Post(flow);
-            await flow.FinishAsync();
+            await flow.FinishAndWait();
         }
 
         public static async Task Test()
         {
             var flow = GetFlow();
-
-            int start = 10_000_000;
-            int end = 20_000_000;
-            for (int i = start; i < end; i++) flow.Post(i);
-                
-            await flow.FinishAsync();
+            flow.PostAll(Enumerable.Range(10_000_000, 10_000_000));
+            await flow.FinishAndWait();
         }
 
     }

@@ -11,7 +11,7 @@ namespace Dataflow.Linq
 
     public static class IFlowExtensions
     {
-        public static async ValueTask FinishAsync<T>(this IFlow<T> flow)
+        public static async ValueTask FinishAndWait<T>(this IFlow<T> flow)
         {
             flow.Complete();
             await flow.Completion;

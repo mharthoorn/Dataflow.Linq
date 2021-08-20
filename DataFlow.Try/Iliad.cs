@@ -13,7 +13,7 @@ namespace DataFlowTest
         {
             var flow = GetFlow();
             flow.Post(GUTENBERG_URL);
-            await flow.FinishAsync();
+            await flow.FinishAndWait();
 
             var (input, output) = DataflowWithoutFluency();
             input.Post(GUTENBERG_URL);
