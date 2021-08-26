@@ -11,14 +11,18 @@ namespace DataFlowTest
 
         public static async Task Test()
         {
-            var flow = GetFlow();
-            flow.Post(GUTENBERG_URL);
-            await flow.FinishAndWait();
+            //var flow = GetFlow();
+            //flow.Post(GUTENBERG_URL);
+            //await flow.FinishAndWait();
 
-            var (input, output) = DataflowWithoutFluency();
-            input.Post(GUTENBERG_URL);
-            input.Complete();
-            output.Completion.Wait();
+            var pflow = GetProcessorsFlow();
+            pflow.Post(GUTENBERG_URL);
+            await pflow.FinishAndWait();
+
+            //var (input, output) = DataflowWithoutFluency();
+            //input.Post(GUTENBERG_URL);
+            //input.Complete();
+            //output.Completion.Wait();
 
             
         }

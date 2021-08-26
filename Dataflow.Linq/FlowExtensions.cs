@@ -46,6 +46,12 @@ namespace Dataflow.Linq
             return source.Append(target);
         }
 
+        public static DataFlow<In, Target> TransformMany<In, Out, Target>(this DataFlow<In, Out> source, Func<Out, Task<IEnumerable<Target>>> func)
+        {
+            var target = new TransformManyBlock<Out, Target>(func);
+            return source.Append(target);
+        }
+
         public static DataFlow<In, Out> Observe<In, Out>(this DataFlow<In, Out> source, Action<Out> action)
         {
             var observer = source.Output.AsObservable();

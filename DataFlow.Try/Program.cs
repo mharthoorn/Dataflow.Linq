@@ -7,7 +7,7 @@ namespace DataFlowTest
        
         static async Task Main(string[] args)
         {
-            await NumericsLinqFlow.Test();
+            await Iliad.Test();
         }
     }
 }
